@@ -1,0 +1,2 @@
+split,train_end,test_start,test_end,n_stores_evaluated,n_stores_skipped,pooled_rows,seasonal_naive_rmsle,arimax_rmsle,seasonal_naive_mape,arimax_mape,arimax_better_store_share,improvement_pct
+CV1,2017-01-31,2017-02-01,2017-02-07,810,4,5670,0.9326891488255195,0.7316589822586472,126.3269983531812,78.47437852086946,0.6938271604938272,21.553822816531927

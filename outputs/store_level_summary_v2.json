@@ -1,0 +1,34 @@
+{
+  "n_stores_total": 814,
+  "n_stores_evaluated": 812,
+  "n_stores_skipped": 2,
+  "n_failures": 0,
+  "holdout_start": "2017-03-15",
+  "holdout_end": "2017-04-22",
+  "pooled_rows": 31476,
+  "seasonal_naive_rmsle_pooled": 0.9622259285093658,
+  "arimax_rmsle_pooled": 0.8122293441349365,
+  "seasonal_naive_rmse_log_pooled": 0.9622259285093658,
+  "arimax_rmse_log_pooled": 0.8176650099851616,
+  "seasonal_naive_mape_pooled": 131.82354263303316,
+  "arimax_mape_pooled": 86.98979401978882,
+  "arimax_better_store_share": 0.7906403940886699,
+  "improvement_vs_baseline_pct": 15.588499533243384,
+  "cv_folds": [
+    {
+      "split": "CV1",
+      "train_end": "2017-01-31",
+      "test_start": "2017-02-01",
+      "test_end": "2017-02-07",
+      "n_stores_evaluated": 810,
+      "n_stores_skipped": 4,
+      "pooled_rows": 5670,
+      "seasonal_naive_rmsle": 0.9326891488255195,
+      "arimax_rmsle": 0.7316589822586472,
+      "seasonal_naive_mape": 126.3269983531812,
+      "arimax_mape": 78.47437852086946,
+      "arimax_better_store_share": 0.6938271604938272,
+      "improvement_pct": 21.553822816531927
+    }
+  ]
+}
