@@ -4,13 +4,13 @@
 
 The final notebook for grading is:
 
-- `03_final_store_level_forecasting.ipynb`
+- `notebooks/03_final_store_level_forecasting.ipynb`
 
 ## Final Project Flow
 
-1. `01_data_understanding_eda.ipynb`
-2. `02_data_cleaning_feature_engineering.ipynb`
-3. `03_final_store_level_forecasting.ipynb`
+1. `notebooks/01_data_understanding_eda.ipynb`
+2. `notebooks/02_data_cleaning_feature_engineering.ipynb`
+3. `notebooks/03_final_store_level_forecasting.ipynb`
 
 ## Problem
 
@@ -61,9 +61,9 @@ This fold is not the main reported result. It is included as a lightweight tempo
 
 ## Final Output Files
 
-- `outputs/store_level_summary_v2.json`
-- `outputs/store_level_metrics_v2.csv`
-- `outputs/store_level_holdout_predictions_v2.csv`
+- `output/store_level_summary_v2.json`
+- `output/store_level_metrics_v2.csv`
+- `output/store_level_holdout_predictions_v2.csv`
 
 ## Note For Grading
 

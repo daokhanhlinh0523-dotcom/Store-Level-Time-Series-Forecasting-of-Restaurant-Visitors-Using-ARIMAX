@@ -1,5 +1,5 @@
-raw_Data/
-processed_data/
+notebooks/raw_Data/
+notebooks/processed_data/
 
 .ipynb_checkpoints/
 __pycache__/

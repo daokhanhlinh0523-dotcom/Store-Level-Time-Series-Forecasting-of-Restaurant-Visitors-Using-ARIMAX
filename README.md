@@ -2,15 +2,17 @@
 
 This repository contains the final submission for a time series forecasting project on **daily restaurant visitors**.
 
+Dataset source: [Recruit Restaurant Visitor Forecasting (Kaggle input page)](https://www.kaggle.com/code/headsortails/be-my-guest-recruit-restaurant-eda/input)
+
 ## Read This First
 
 If you are grading this project, read the files in this order:
 
 1. `README.md`
-2. `store_level_results.md`
-3. `03_final_store_level_forecasting.ipynb`
-4. `02_data_cleaning_feature_engineering.ipynb`
-5. `01_data_understanding_eda.ipynb`
+2. `report/store_level_results.md`
+3. `notebooks/03_final_store_level_forecasting.ipynb`
+4. `notebooks/02_data_cleaning_feature_engineering.ipynb`
+5. `notebooks/01_data_understanding_eda.ipynb`
 
 This keeps the project easy to follow:
 
@@ -22,11 +24,11 @@ This keeps the project easy to follow:
 
 The main files for grading are:
 
-- `store_level_results.md`
-- `03_final_store_level_forecasting.ipynb`
-- `outputs/store_level_summary_v2.json`
-- `outputs/store_level_metrics_v2.csv`
-- `outputs/store_level_holdout_predictions_v2.csv`
+- `report/store_level_results.md`
+- `notebooks/03_final_store_level_forecasting.ipynb`
+- `output/store_level_summary_v2.json`
+- `output/store_level_metrics_v2.csv`
+- `output/store_level_holdout_predictions_v2.csv`
 
 ## How to Run
 
@@ -36,19 +38,19 @@ The main files for grading are:
 3. Open Jupyter Notebook:
    `jupyter notebook`
 4. Read the project in this order:
-   `01_data_understanding_eda.ipynb` -> `02_data_cleaning_feature_engineering.ipynb` -> `03_final_store_level_forecasting.ipynb`
+   `notebooks/01_data_understanding_eda.ipynb` -> `notebooks/02_data_cleaning_feature_engineering.ipynb` -> `notebooks/03_final_store_level_forecasting.ipynb`
 5. For the final result only, open:
-   `03_final_store_level_forecasting.ipynb`
+   `notebooks/03_final_store_level_forecasting.ipynb`
 
 The final notebook reads input data from:
 
-- `processed_data/`
+- `notebooks/processed_data/`
 
 and writes final outputs to:
 
-- `outputs/store_level_summary_v2.json`
-- `outputs/store_level_metrics_v2.csv`
-- `outputs/store_level_holdout_predictions_v2.csv`
+- `output/store_level_summary_v2.json`
+- `output/store_level_metrics_v2.csv`
+- `output/store_level_holdout_predictions_v2.csv`
 
 ## Project Goal
 
@@ -91,18 +93,22 @@ This is included as a compact temporal validation step. The main reported result
 
 ### Main notebooks
 
-- `01_data_understanding_eda.ipynb`: EDA and dataset understanding
-- `02_data_cleaning_feature_engineering.ipynb`: cleaning and feature engineering
-- `03_final_store_level_forecasting.ipynb`: final corrected forecasting notebook
+- `notebooks/01_data_understanding_eda.ipynb`: EDA and dataset understanding
+- `notebooks/02_data_cleaning_feature_engineering.ipynb`: cleaning and feature engineering
+- `notebooks/03_final_store_level_forecasting.ipynb`: final corrected forecasting notebook
 
 ### Data folders
 
-- `raw_Data/`: original source data
-- `processed_data/`: cleaned and transformed data used by the final notebook
+- `notebooks/raw_Data/`: original source data
+- `notebooks/processed_data/`: cleaned and transformed data used by the final notebook
 
 ### Output folder
 
-- `outputs/`: final saved summary, metrics, and holdout predictions
+- `output/`: final saved summary, metrics, and holdout predictions
+
+### Report folder
+
+- `report/store_level_results.md`: short grading summary
 
 ## Important Method Notes
 
