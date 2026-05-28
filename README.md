@@ -1,4 +1,4 @@
-# Store-Level Time Series Forecasting of Restaurant Visitors Using ARIMAX
+# Store-Level Time Series Forecasting of Restaurant Visitors Using SARIMAX
 
 This repository contains the final submission for a time series forecasting project on **daily restaurant visitors**.
 
@@ -10,25 +10,29 @@ If you are grading this project, read the files in this order:
 
 1. `README.md`
 2. `report/store_level_results.md`
-3. `notebooks/03_final_store_level_forecasting.ipynb`
-4. `notebooks/02_data_cleaning_feature_engineering.ipynb`
-5. `notebooks/01_data_understanding_eda.ipynb`
+3. `latex/main.tex`
+4. `notebooks/03_final_store_level_forecasting.ipynb`
+5. `notebooks/02_data_cleaning_feature_engineering.ipynb`
+6. `notebooks/01_data_understanding_eda.ipynb`
 
 This keeps the project easy to follow:
 
 - `01`: understand the data
 - `02`: clean data and build features
-- `03`: run the final corrected forecasting model
+- `03`: run the final store-level forecasting comparison
 
 ## Final Submission Files
 
 The main files for grading are:
 
 - `report/store_level_results.md`
+- `latex/main.tex`
 - `notebooks/03_final_store_level_forecasting.ipynb`
-- `output/store_level_summary_v2.json`
-- `output/store_level_metrics_v2.csv`
-- `output/store_level_holdout_predictions_v2.csv`
+- `output/store_level_summary_main250cv.json`
+- `output/store_level_metrics_main250cv.csv`
+- `output/store_level_holdout_predictions_main250cv.csv`
+- `output/store_level_cv_summary_main250cv.csv`
+- `output/store_level_ablation_metrics_main250cv.csv`
 
 ## How to Run
 
@@ -46,11 +50,13 @@ The final notebook reads input data from:
 
 - `notebooks/processed_data/`
 
-and writes final outputs to:
+and writes the final outputs to:
 
-- `output/store_level_summary_v2.json`
-- `output/store_level_metrics_v2.csv`
-- `output/store_level_holdout_predictions_v2.csv`
+- `output/store_level_summary_main250cv.json`
+- `output/store_level_metrics_main250cv.csv`
+- `output/store_level_holdout_predictions_main250cv.csv`
+- `output/store_level_cv_summary_main250cv.csv`
+- `output/store_level_ablation_metrics_main250cv.csv`
 
 ## Project Goal
 
@@ -61,33 +67,85 @@ This is a **store-level forecasting** project, not one aggregate time series for
 ## Final Modeling Setup
 
 - Baseline: `Seasonal Naive (lag = 7)`
-- Final model: `ARIMAX(1,1,1)(1,1,1)[7]`
-- Exogenous features: `is_holiday`, `is_golden_week`, `is_weekend`, `log1p_reserve`
-- Reservation source: `AIR + mapped HPG`
+- Benchmark model: `SARIMA(1,1,1)(1,1,1)[7]` with no exogenous regressors
+- Final model: `SARIMAX(1,1,1)(1,1,1)[7]` with `is_holiday` only
+- Run mode: `main250cv`
+- Main evaluation sample: `250` eligible stores
 - Holdout period: `2017-03-15 -> 2017-04-22`
+- Evaluation unit: pooled observed `store-date` rows
 
-## Final Corrected Results
+## Final Results
 
 - Stores total: `814`
-- Stores evaluated: `812`
-- Stores skipped: `2`
-- Holdout rows: `31,476`
-- Baseline RMSLE: `0.9622`
-- ARIMAX RMSLE: `0.8122`
-- Improvement vs baseline: `15.6%`
-- ARIMAX better than baseline on `79.1%` of evaluated stores
+- Stores eligible: `812`
+- Stores targeted: `250`
+- Stores evaluated: `250`
+- Stores skipped: `0`
+- Model fallbacks: `0`
+- Holdout rows: `9,721`
+- Seasonal Naive RMSLE: `0.9314`
+- SARIMA no exog RMSLE: `0.7255`
+- SARIMAX holiday-only RMSLE: `0.7098`
+- SARIMA improvement vs Naive: `22.1%`
+- SARIMAX improvement vs Naive: `23.8%`
+- SARIMAX improvement vs SARIMA: `2.17%`
+- SARIMAX better than Naive on `89.2%` of stores
+- SARIMAX better than SARIMA on `67.2%` of stores
 
-## Lightweight Validation Check
+## Rolling-Origin Validation
 
-The final notebook also includes one lightweight expanding-window validation fold:
+The final notebook also includes three rolling-origin validation folds on the same `250`-store sample:
 
-- Train end: `2017-01-31`
-- Test window: `2017-02-01 -> 2017-02-07`
-- Baseline RMSLE: `0.9327`
-- ARIMAX RMSLE: `0.7317`
-- Improvement vs baseline: `21.6%`
+- `CV1`: train to `2017-01-14`, test `2017-01-15 -> 2017-01-28`
+- `CV2`: train to `2017-01-31`, test `2017-02-01 -> 2017-02-14`
+- `CV3`: train to `2017-02-14`, test `2017-02-15 -> 2017-02-28`
 
-This is included as a compact temporal validation step. The main reported result is still the final holdout.
+Pooled RMSLE by fold:
+
+- `CV1`: Naive `1.0777`, SARIMA `0.7345`, SARIMAX `0.7162`
+- `CV2`: Naive `0.8679`, SARIMA `0.7020`, SARIMAX `0.7115`
+- `CV3`: Naive `0.9050`, SARIMA `0.6802`, SARIMAX `0.6784`
+
+## 400-Store Robustness Check
+
+The notebook has also been used to run a larger deterministic `400`-store holdout-only robustness check using the same model ladder and final holdout window.
+
+- Stores evaluated: `400`
+- Holdout rows: `15,555`
+- Seasonal Naive RMSLE: `0.9209`
+- SARIMA no exog RMSLE: `0.7178`
+- SARIMAX holiday-only RMSLE: `0.7145`
+- SARIMA improvement vs Naive: `22.06%`
+- SARIMAX improvement vs Naive: `22.41%`
+- SARIMAX improvement vs SARIMA: `0.45%`
+- SARIMA better than Naive on `88.0%` of stores
+- SARIMAX better than Naive on `89.25%` of stores
+- SARIMAX better than SARIMA on `65.25%` of stores
+
+Interpretation:
+
+- the qualitative ranking remains stable on the larger sample
+- the dominant gain remains the move from `Seasonal Naive` to `SARIMA`
+- the incremental holiday gain stays positive, but becomes smaller on the larger robustness sample
+
+## Representative Residual Diagnostics
+
+The notebook was also used to run representative store-level residual diagnostics for the fixed-order `SARIMA(1,1,1)(1,1,1)[7]` benchmark on six deterministic stores spanning the eligible panel.
+
+Summary interpretation:
+
+- for `5/6` representative stores, Ljung-Box p-values at lags `7`, `14`, and `21` remain above `0.05`
+- for `1/6` representative stores, residual dependence at seasonal lags remains statistically noticeable
+- this supports a disciplined interpretation: the common SARIMA benchmark removes most dominant weekly dependence for representative stores, but it does not produce perfectly white residuals for every case
+
+## Optional Extensions In The Notebook
+
+The final notebook also includes two optional extension blocks that are disabled by default:
+
+- a deterministic `400`-store robustness re-run using the same holdout and rolling-origin design
+- representative residual diagnostics for selected stores using the fixed-order `SARIMA(1,1,1)(1,1,1)[7]` benchmark, with residual ACF plots and Ljung-Box p-values at seasonal lags
+
+These extensions are included to strengthen the time-series argument when needed, but they are not part of the default `main250cv` final result set unless explicitly run.
 
 ## Repository Structure
 
@@ -95,7 +153,7 @@ This is included as a compact temporal validation step. The main reported result
 
 - `notebooks/01_data_understanding_eda.ipynb`: EDA and dataset understanding
 - `notebooks/02_data_cleaning_feature_engineering.ipynb`: cleaning and feature engineering
-- `notebooks/03_final_store_level_forecasting.ipynb`: final corrected forecasting notebook
+- `notebooks/03_final_store_level_forecasting.ipynb`: final forecasting comparison
 
 ### Data folders
 
@@ -104,11 +162,13 @@ This is included as a compact temporal validation step. The main reported result
 
 ### Output folder
 
-- `output/`: final saved summary, metrics, and holdout predictions
+- `output/`: final saved summary, metrics, validation results, and holdout predictions
+- `output/archive/`: archived legacy and non-final experiment outputs
 
-### Report folder
+### Report folders
 
 - `report/store_level_results.md`: short grading summary
+- `latex/main.tex`: full report source
 
 ## Important Method Notes
 
@@ -117,11 +177,10 @@ The final notebook:
 - does **not** pad synthetic pre-history for stores
 - models each store only on its **observed date span**
 - fills missing days inside an observed span as `0 visitors`
-- caps holdout reservation regressors at `2017-03-14` to avoid future leakage
-- includes one **lightweight expanding-window validation fold** before the final holdout
+- compares `Seasonal Naive`, `SARIMA no exog`, and `SARIMAX holiday only`
+- uses one fixed `250`-store main sample for the holdout and all three CV folds
+- includes optional code paths for `400`-store robustness and representative residual diagnostics
 
-## What Was Removed For Clarity
+## Note For Grading
 
-- The separate methodology notebook is not needed in the final structure.
-- Old output files from earlier experiments were removed.
-- Only the corrected `_v2` outputs are part of the final claim.
+Use the numbered notebooks, `latex/main.tex`, and the `*_main250cv.*` files in `output/` as the final result set.

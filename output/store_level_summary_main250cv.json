@@ -1,0 +1,101 @@
+{
+  "run_mode": "main_sample",
+  "output_tag": "main250cv",
+  "n_stores_total": 814,
+  "n_stores_eligible": 812,
+  "n_stores_targeted": 250,
+  "n_stores_evaluated": 250,
+  "n_stores_skipped": 0,
+  "n_model_fallbacks": 0,
+  "holdout_start": "2017-03-15",
+  "holdout_end": "2017-04-22",
+  "pooled_rows": 9721,
+  "seasonal_naive_rmsle_pooled": 0.931379641526931,
+  "sarima_no_exog_rmsle_pooled": 0.725544880501238,
+  "arimax_holiday_only_rmsle_pooled": 0.7097694192667632,
+  "sarima_better_than_naive_share": 0.872,
+  "holiday_arimax_better_than_naive_share": 0.892,
+  "holiday_arimax_better_than_sarima_share": 0.672,
+  "sarima_improvement_vs_naive_pct": 22.09998499518859,
+  "holiday_arimax_improvement_vs_naive_pct": 23.793758461034592,
+  "holiday_arimax_improvement_vs_sarima_pct": 2.174291578430881,
+  "comparison_results": [
+    {
+      "model": "Seasonal Naive (lag 7)",
+      "feature_set": "lag 7 only",
+      "RMSLE": 0.931379641526931,
+      "RMSE_log": 0.931379641526931,
+      "MAPE": 128.40443986435716
+    },
+    {
+      "model": "SARIMA no exog",
+      "feature_set": "no exog",
+      "RMSLE": 0.725544880501238,
+      "RMSE_log": 0.7257367713953444,
+      "MAPE": 90.61319068454013
+    },
+    {
+      "model": "SARIMAX holiday only",
+      "feature_set": "holiday only",
+      "RMSLE": 0.7097694192667632,
+      "RMSE_log": 0.7101297900656737,
+      "MAPE": 87.55928460880943
+    }
+  ],
+  "cv_folds": [
+    {
+      "split": "CV1",
+      "train_end": "2017-01-14",
+      "test_start": "2017-01-15",
+      "test_end": "2017-01-28",
+      "n_stores_evaluated": 250,
+      "n_stores_skipped": 0,
+      "pooled_rows": 3500,
+      "seasonal_naive_rmsle": 1.0777015051976195,
+      "sarima_no_exog_rmsle": 0.7344683186457052,
+      "arimax_holiday_only_rmsle": 0.7161596360680257,
+      "sarima_better_than_naive_share": 0.824,
+      "holiday_arimax_better_than_naive_share": 0.848,
+      "holiday_arimax_better_than_sarima_share": 0.608,
+      "sarima_improvement_vs_naive_pct": 31.848632009563282,
+      "holiday_arimax_improvement_vs_naive_pct": 33.547495979723756,
+      "holiday_arimax_improvement_vs_sarima_pct": 2.492780438976466
+    },
+    {
+      "split": "CV2",
+      "train_end": "2017-01-31",
+      "test_start": "2017-02-01",
+      "test_end": "2017-02-14",
+      "n_stores_evaluated": 250,
+      "n_stores_skipped": 0,
+      "pooled_rows": 3500,
+      "seasonal_naive_rmsle": 0.8678679644592717,
+      "sarima_no_exog_rmsle": 0.7020322474147038,
+      "arimax_holiday_only_rmsle": 0.7115060887826633,
+      "sarima_better_than_naive_share": 0.772,
+      "holiday_arimax_better_than_naive_share": 0.732,
+      "holiday_arimax_better_than_sarima_share": 0.376,
+      "sarima_improvement_vs_naive_pct": 19.108404024095123,
+      "holiday_arimax_improvement_vs_naive_pct": 18.016781593503136,
+      "holiday_arimax_improvement_vs_sarima_pct": -1.3494880616734832
+    },
+    {
+      "split": "CV3",
+      "train_end": "2017-02-14",
+      "test_start": "2017-02-15",
+      "test_end": "2017-02-28",
+      "n_stores_evaluated": 250,
+      "n_stores_skipped": 0,
+      "pooled_rows": 3500,
+      "seasonal_naive_rmsle": 0.9050181355577469,
+      "sarima_no_exog_rmsle": 0.6801979633898293,
+      "arimax_holiday_only_rmsle": 0.6783644302998229,
+      "sarima_better_than_naive_share": 0.816,
+      "holiday_arimax_better_than_naive_share": 0.804,
+      "holiday_arimax_better_than_sarima_share": 0.516,
+      "sarima_improvement_vs_naive_pct": 24.84151016812109,
+      "holiday_arimax_improvement_vs_naive_pct": 25.04410644967256,
+      "holiday_arimax_improvement_vs_sarima_pct": 0.2695587444673994
+    }
+  ]
+}

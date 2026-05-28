@@ -1,0 +1,8 @@
+model_key,model,feature_set,scope,RMSLE,RMSE_log,MAPE
+seasonal_naive,Seasonal Naive (lag 7),lag 7 only,pooled observed store-date holdout,0.8840745628224796,0.8840745628224796,122.54680474643884
+sarima_no_exog,SARIMA no exog,no exog,pooled observed store-date holdout,0.7012509125972054,0.7012509125972054,90.63709135050982
+arimax_holiday_only,ARIMAX holiday only,holiday only,pooled observed store-date holdout,0.692546249865329,0.692546249865329,88.82080766223366
+arimax_holiday_weekend,ARIMAX holiday + weekend,holiday + weekend,pooled observed store-date holdout,0.6925720242185109,0.6925720242185109,88.80688519345912
+arimax_golden_week_only,ARIMAX Golden Week only,Golden Week only,pooled observed store-date holdout,0.701129200281924,0.701129200281924,90.70827308324986
+arimax_reservation_only,ARIMAX reservation only,reservation only,pooled observed store-date holdout,0.7373649656514322,0.7373675428953169,86.06141926157085
+arimax_full,ARIMAX full,holiday + weekend + Golden Week + reservation,pooled observed store-date holdout,0.728830516478948,0.7288339313744832,84.6965437506427

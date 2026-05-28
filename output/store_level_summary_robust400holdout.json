@@ -1,0 +1,41 @@
+{
+  "output_tag": "robust400holdout",
+  "n_stores_targeted": 400,
+  "n_stores_evaluated": 400,
+  "n_stores_skipped": 0,
+  "n_model_fallbacks": 0,
+  "pooled_rows": 15555,
+  "seasonal_naive_rmsle_pooled": 0.9209088388229414,
+  "sarima_no_exog_rmsle_pooled": 0.7177635791014413,
+  "arimax_holiday_only_rmsle_pooled": 0.7145113249507893,
+  "sarima_better_than_naive_share": 0.88,
+  "holiday_arimax_better_than_naive_share": 0.8925,
+  "holiday_arimax_better_than_sarima_share": 0.6525,
+  "sarima_improvement_vs_naive_pct": 22.059214892665164,
+  "holiday_arimax_improvement_vs_naive_pct": 22.41237190599222,
+  "holiday_arimax_improvement_vs_sarima_pct": 0.45310938662051575,
+  "comparison_results": [
+    {
+      "model": "Seasonal Naive (lag 7)",
+      "feature_set": "lag 7 only",
+      "RMSLE": 0.9209088388229414,
+      "RMSE_log": 0.9209088388229414,
+      "MAPE": 125.63318572392079
+    },
+    {
+      "model": "SARIMA no exog",
+      "feature_set": "no exog",
+      "RMSLE": 0.7177635791014413,
+      "RMSE_log": 0.7200114968959873,
+      "MAPE": 86.44535703127869
+    },
+    {
+      "model": "SARIMAX holiday only",
+      "feature_set": "holiday only",
+      "RMSLE": 0.7145113249507893,
+      "RMSE_log": 9.59382416034486e+96,
+      "MAPE": 84.31311658560202
+    }
+  ],
+  "cv_folds": []
+}

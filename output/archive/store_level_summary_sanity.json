@@ -1,0 +1,68 @@
+{
+  "run_mode": "sanity_check",
+  "output_tag": "sanity",
+  "n_stores_total": 814,
+  "n_stores_eligible": 812,
+  "n_stores_targeted": 120,
+  "n_stores_evaluated": 120,
+  "n_stores_skipped": 0,
+  "n_model_fallbacks": 0,
+  "holdout_start": "2017-03-15",
+  "holdout_end": "2017-04-22",
+  "pooled_rows": 4676,
+  "seasonal_naive_rmsle_pooled": 0.8840745628224796,
+  "sarima_no_exog_rmsle_pooled": 0.7012509125972054,
+  "arimax_full_rmsle_pooled": 0.728830516478948,
+  "sarima_better_than_naive_share": 0.8916666666666667,
+  "arimax_full_better_than_naive_share": 0.8,
+  "arimax_full_better_than_sarima_share": 0.525,
+  "cv_status": "skipped_pending_final_step",
+  "sarima_improvement_vs_naive_pct": 20.67966412715178,
+  "arimax_improvement_vs_naive_pct": 17.560062563942843,
+  "arimax_improvement_vs_sarima_pct": -3.932915221400104,
+  "ablation_results": [
+    {
+      "model": "SARIMA no exog",
+      "feature_set": "no exog",
+      "RMSLE": 0.7012509125972054,
+      "RMSE_log": 0.7012509125972054,
+      "MAPE": 90.63709135050982
+    },
+    {
+      "model": "ARIMAX holiday only",
+      "feature_set": "holiday only",
+      "RMSLE": 0.692546249865329,
+      "RMSE_log": 0.692546249865329,
+      "MAPE": 88.82080766223366
+    },
+    {
+      "model": "ARIMAX holiday + weekend",
+      "feature_set": "holiday + weekend",
+      "RMSLE": 0.6925720242185109,
+      "RMSE_log": 0.6925720242185109,
+      "MAPE": 88.80688519345912
+    },
+    {
+      "model": "ARIMAX Golden Week only",
+      "feature_set": "Golden Week only",
+      "RMSLE": 0.701129200281924,
+      "RMSE_log": 0.701129200281924,
+      "MAPE": 90.70827308324986
+    },
+    {
+      "model": "ARIMAX reservation only",
+      "feature_set": "reservation only",
+      "RMSLE": 0.7373649656514322,
+      "RMSE_log": 0.7373675428953169,
+      "MAPE": 86.06141926157085
+    },
+    {
+      "model": "ARIMAX full",
+      "feature_set": "holiday + weekend + Golden Week + reservation",
+      "RMSLE": 0.728830516478948,
+      "RMSE_log": 0.7288339313744832,
+      "MAPE": 84.6965437506427
+    }
+  ],
+  "cv_folds": []
+}
