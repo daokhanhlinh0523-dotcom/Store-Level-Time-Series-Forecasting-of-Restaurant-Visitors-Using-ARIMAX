@@ -1,4 +1,4 @@
 model_key,model,feature_set,scope,RMSLE,RMSE_log,MAPE
 seasonal_naive,Seasonal Naive (lag 7),lag 7 only,pooled observed store-date holdout,0.931379641526931,0.931379641526931,128.40443986435716
-sarima_no_exog,SARIMA no exog,no exog,pooled observed store-date holdout,0.725544880501238,0.7257367713953444,90.61319068454013
-arimax_holiday_only,SARIMAX holiday only,holiday only,pooled observed store-date holdout,0.7097694192667632,0.7101297900656737,87.55928460880943
+sarima_no_exog,SARIMA no exog,no exog,pooled observed store-date holdout,0.725544880501238,0.725544880501238,90.53964297643532
+arimax_holiday_only,SARIMAX holiday only,holiday only,pooled observed store-date holdout,0.7097694192667632,0.7097694192667632,87.48718963360463

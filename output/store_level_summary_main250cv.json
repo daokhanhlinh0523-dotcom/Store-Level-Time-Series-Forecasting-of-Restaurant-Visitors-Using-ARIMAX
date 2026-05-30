@@ -31,15 +31,15 @@
       "model": "SARIMA no exog",
       "feature_set": "no exog",
       "RMSLE": 0.725544880501238,
-      "RMSE_log": 0.7257367713953444,
-      "MAPE": 90.61319068454013
+      "RMSE_log": 0.725544880501238,
+      "MAPE": 90.53964297643532
     },
     {
       "model": "SARIMAX holiday only",
       "feature_set": "holiday only",
       "RMSLE": 0.7097694192667632,
-      "RMSE_log": 0.7101297900656737,
-      "MAPE": 87.55928460880943
+      "RMSE_log": 0.7097694192667632,
+      "MAPE": 87.48718963360463
     }
   ],
   "cv_folds": [

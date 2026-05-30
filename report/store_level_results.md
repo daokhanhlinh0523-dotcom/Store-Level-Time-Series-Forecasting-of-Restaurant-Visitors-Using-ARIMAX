@@ -88,19 +88,20 @@ To test whether the main conclusion depends too heavily on the `250`-store evalu
 - Holdout rows: `15,555`
 - Seasonal Naive RMSLE: `0.9209`
 - SARIMA no exog RMSLE: `0.7178`
-- SARIMAX holiday-only RMSLE: `0.7145`
+- Model fallbacks: `1`
+- SARIMAX holiday-only RMSLE: `0.7034`
 - SARIMA improvement vs Naive: `22.06%`
-- SARIMAX improvement vs Naive: `22.41%`
-- SARIMAX improvement vs SARIMA: `0.45%`
+- SARIMAX improvement vs Naive: `23.62%`
+- SARIMAX improvement vs SARIMA: `2.00%`
 - SARIMA better than Naive on `88.0%` of stores
 - SARIMAX better than Naive on `89.25%` of stores
-- SARIMAX better than SARIMA on `65.25%` of stores
+- SARIMAX better than SARIMA on `65.5%` of stores
 
 Interpretation:
 
 - the qualitative ranking remains stable on the larger deterministic subset
 - the strong gain from modelling seasonal stochastic dependence remains intact
-- the holiday-only gain stays positive, but it narrows materially relative to the `250`-store main sample
+- the holiday-only gain stays positive and remains slightly smaller than in the `250`-store main sample
 - this strengthens the conclusion that the central forecasting improvement comes from the SARIMA seasonal core, while the holiday regressor adds a smaller and more sample-sensitive incremental gain
 
 Residual diagnostics interpretation:

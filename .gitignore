@@ -4,3 +4,5 @@ notebooks/processed_data/
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
+backups/
+output/backup_before_extensions_*/
