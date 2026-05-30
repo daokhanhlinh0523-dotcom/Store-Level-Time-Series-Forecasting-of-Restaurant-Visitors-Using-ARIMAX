@@ -10,7 +10,7 @@ If you are grading this project, read the files in this order:
 
 1. `README.md`
 2. `report/store_level_results.md`
-3. `latex/main.tex`
+3. `report/final_report.pdf`
 4. `notebooks/03_final_store_level_forecasting.ipynb`
 5. `notebooks/02_data_cleaning_feature_engineering.ipynb`
 6. `notebooks/01_data_understanding_eda.ipynb`
@@ -26,7 +26,7 @@ This keeps the project easy to follow:
 The main files for grading are:
 
 - `report/store_level_results.md`
-- `latex/main.tex`
+- `report/final_report.pdf`
 - `notebooks/03_final_store_level_forecasting.ipynb`
 - `output/store_level_summary_main250cv.json`
 - `output/store_level_metrics_main250cv.csv`
@@ -89,6 +89,7 @@ This is a **store-level forecasting** project, not one aggregate time series for
 - SARIMA improvement vs Naive: `22.1%`
 - SARIMAX improvement vs Naive: `23.8%`
 - SARIMAX improvement vs SARIMA: `2.17%`
+- SARIMA better than Naive on `87.2%` of stores
 - SARIMAX better than Naive on `89.2%` of stores
 - SARIMAX better than SARIMA on `67.2%` of stores
 
@@ -169,7 +170,7 @@ These extensions are included to strengthen the time-series argument when needed
 ### Report folders
 
 - `report/store_level_results.md`: short grading summary
-- `latex/main.tex`: full report source
+- `report/final_report.pdf`: full report export
 
 ## Important Method Notes
 
@@ -184,4 +185,4 @@ The final notebook:
 
 ## Note For Grading
 
-Use the numbered notebooks, `latex/main.tex`, and the `*_main250cv.*` files in `output/` as the final result set.
+Use `README.md`, the files in `report/`, the numbered notebooks, and the `*_main250cv.*` files in `output/` as the final result set.
